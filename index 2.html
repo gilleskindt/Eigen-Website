@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilles Kindt - Webdesign</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <img src="Images/veronique_logo_transparent.png" alt="Vero Logo" class="logo-image">
+        </div>
+        
+        <div class="header-right">
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a>
+                    <li><a href="about.html">Over</a></li>
+                    <li><a href="behandelingen.html">Behandelingen</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <select id="language-dropdown" onchange="changeLanguage(this.value, window.location.pathname.split('/').pop())">
+                    <option value="en" selected>English</option>
+                    <option value="nl">Nederlands</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Tandartsenpraktijk <span class="highlight"> WYSEUR</span></h2>
+                <p>25 jaar ervaring voor uw stralende glimlach.</p>
+                <a href="collection.html" class="btn">Maak een afspraak</a>
+            </div>
+        </section>
+
+        <section class="featured">
+            <h2>Onze <span class="highlight">Behandelingen</span></h2>
+            <div class="featured-items">
+                <div class="item">
+                    <div class="item-img product1-img"></div>
+                    <h3>Controles</h3>
+                    <p>We raden onze patiënten aan regelmatig op controle te komen. Zo kunnen we problemen tijdig opsporen en behandelen indien nodig.</p>
+                </div>
+                <div class="item">
+                    <div class="item-img product2-img"></div>
+                    <h3>Restauratief</h3>
+                    <p>Indien tijdens de controle bij u een gaatje ontdekt wordt, of er breekt een stukje van uw tand, dan herstellen we dit met een vulling.</p>
+                </div>
+                <div class="item">
+                    <div class="item-img product3-img"></div>
+                    <h3>Protheses en Implantaten</h3>
+                    <p>Indien u een of meerdere tanden mist, kan u deze laten vervangen door middel van een uitneembare prothese of kunstgebit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-preview">
+            <div class="about-text">
+                <h2>Onze <span class="highlight">Waarden</span></h2>
+                <p>Bij Tandartsenpraktijk Wyseur geloven we sterk in een patiëntgerichte aanpak. Wij vinden het essentieel dat onze patiënten steeds goed geïnformeerd zijn over elke stap in hun behandeling. Daarnaast besteden we bijzondere aandacht aan het comfort van onze patiënten. Omdat we begrijpen dat een bezoek aan de tandarts soms gepaard gaat met angst of onzekerheid, streven we er telkens naar om elke behandeling zo aangenaam en geruststellend mogelijk te maken.</p>
+                <a href="our-story.html" class="btn-secondary">Lees meer</a>
+            </div>
+            <div class="about-image"></div>
+        </section>
+
+        <section class="upcoming-events">
+            <h2><span class="highlight">Aankondigingen</span></h2>
+            <div class="event">
+                <div class="event-date">
+                    <span class="day">1</span>
+                    <span class="month">MEI</span>
+                </div>
+                <div class="event-details">
+                    <h3>Dag van de Arbeid</h3>
+                    <p>Wij nemen die week een verlengd weekend en zijn dus niet beschikbaar tussen 1 en 4 mei.</p>
+                    <a href="events.html" class="btn-text">Details →</a>
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-date">
+                    <span class="day">22</span>
+                    <span class="month">JUL</span>
+                </div>
+                <div class="event-details">
+                    <h3>Verflof grote vakantie</h3>
+                    <p>Vanaf 22 juli gaan wij op verlof en zal ik niet beschikbaar zijn tot en met 15 augustus.</p>
+                    <a href="events.html" class="btn-text">Details →</a>
+                </div>
+            </div>
+            <a href="events.html" class="btn-secondary view-all">Zie alle aankondigingen</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Images/veronique_logo_transparent.png" alt="Vero Logo" class="logo-image">
+                <div class="social-icons">
+                    <a href="https://instagram.com/shaju.artesania" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/shaju.artesania" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a>
+                    <li><a href="about.html">Over</a></li>
+                    <li><a href="behandelingen.html">Behandelingen</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+                <form>
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tandartsenpraktijk Wyseur. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = document.querySelector('.main-nav').contains(event.target);
+            const isClickOnToggle = document.querySelector('.nav-toggle').contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnToggle && document.querySelector('.main-nav').classList.contains('active')) {
+                document.querySelector('.nav-toggle').classList.remove('active');
+                document.querySelector('.main-nav').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

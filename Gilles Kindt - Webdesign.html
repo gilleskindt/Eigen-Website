@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilles Kindt - Webdesign</title>
+    
+    
+    
+<meta id="ConnectiveDocSignExtentionInstalled" name="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.7"><link rel="stylesheet" href="./Gilles Kindt - Webdesign_files/styles.css"><link rel="stylesheet" href="./Gilles Kindt - Webdesign_files/css2"><link rel="stylesheet" href="./Gilles Kindt - Webdesign_files/all.min.css"></head>
+<body>
+    <header>
+        <div class="header-right">
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li>
+                        <a href="http://127.0.0.1:5500/index.html" class="logo-link">
+                            <img src="./Gilles Kindt - Webdesign_files/GK_Logo.png" alt="Gilles Kindt Logo" class="logo-image">
+                            <span class="nav-text">Home</span>
+                        </a>
+                    </li>
+                    <li><a href="http://127.0.0.1:5500/index.html#"><i class="fa-solid fa-user"></i><span class="nav-text">Over</span></a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#"><i class="fa-solid fa-briefcase"></i><span class="nav-text">Diensten</span></a></li>
+                    <li><a href="http://127.0.0.1:5500/index.html#"><i class="fa-solid fa-phone"></i><span class="nav-text">Contact</span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <h2>Gilles Kindt <span class="highlight"> Webdesign</span></h2>
+            <p>Uw gepersonalizeerde webervaring</p>
+        </div>
+    </header>
+    <main>
+        <section class="about-preview">
+            <div class="about-text animate">
+                <h2>Onze Aanpak</h2>
+                <p><span class="bolder">Wij geloven sterk in een persoonlijke aanpak van onze klanten.</span>
+                    Tegenwoordig bestaan er tal van online webdesign tools, maar deze bieden zelden een oplossing die volledig is afgestemd op de specifieke noden en dagelijkse werking van een bedrijf. Wij kiezen bewust voor een sterk gepersonaliseerde aanpak. Zo zitten we regelmatig samen met de klant om zijn behoeften te bespreken, feedback te verzamelen en de website hierop bij te sturen.</p>
+                <a href="http://127.0.0.1:5500/our-story.html" class="btn-about">Lees meer</a>
+            </div>
+            <div class="about-image">
+                <img src="./Gilles Kindt - Webdesign_files/skin_essentials_by_allure_branding_agency_-_webdesign_gent.png" alt="GSM" class="phone-image animate">
+            </div>
+        </section>
+        <section class="services">
+            <div class="services-container shrink">
+                <h2>Onze <span class="highlight">Diensten</span></h2>
+                <div class="service-items">
+                    <div class="service-item">
+                        <i class="fa-solid fa-laptop-code service-icon"></i>
+                        <h3>Webdesign</h3>
+                        <p>Wij ontwerpen en ontwikkelen websites die niet alleen visueel aantrekkelijk zijn, maar ook functioneel en gebruiksvriendelijk.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-chart-line service-icon"></i>
+                        <h3>SEO Optimalisatie</h3>
+                        <p>Onze SEO-experts zorgen ervoor dat uw website goed vindbaar is in zoekmachines, zodat u meer bezoekers kunt aantrekken.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-headset service-icon"></i>
+                        <h3>Ondersteuning</h3>
+                        <p>Wij bieden voortdurende ondersteuning en onderhoud voor uw website, zodat u zich kunt concentreren op uw bedrijf.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio">
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <div class="portfolio-text">
+                        <h2>Onze Projecten</h2>
+                        <p><span class="bolder">Neem een kijkje door onze projecten.</span>
+                            Tegenwoordig bestaan er tal van online webdesign tools, maar deze bieden zelden een oplossing die volledig is afgestemd op de specifieke noden en dagelijkse werking van een bedrijf. Wij kiezen bewust voor een sterk gepersonaliseerde aanpak. Zo zitten we regelmatig samen met de klant om zijn behoeften te bespreken, feedback te verzamelen en de website hierop bij te sturen.</p>
+                        <a href="http://127.0.0.1:5500/our-story.html" class="btn-projects">Lees meer</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="./Gilles Kindt - Webdesign_files/portfolio1.jpg" alt="Project 1">
+                    <h3>Project 1</h3>
+                </div>
+                <div class="portfolio-item">
+                    <img src="./Gilles Kindt - Webdesign_files/portfolio2.jpg" alt="Project 2">
+                    <h3>Project 2</h3>
+                </div>
+                <div class="portfolio-item">
+                    <img src="./Gilles Kindt - Webdesign_files/portfolio3.jpg" alt="Project 3">
+                    <h3>Project 3</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const phoneImage = document.querySelector(".phone-image");
+            const aboutText = document.querySelector(".about-text");
+            const aboutSection = document.querySelector(".about-preview");
+
+            window.addEventListener("scroll", () => {
+                const sectionPosition = aboutSection.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (sectionPosition < screenPosition) {
+                    phoneImage.classList.add("animate");
+                    aboutText.classList.add("animate");
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const servicesContainer = document.querySelector(".services-container");
+            const servicesSection = document.querySelector(".services");
+
+            window.addEventListener("scroll", () => {
+                const sectionPosition = servicesSection.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (sectionPosition < screenHeight / 2) {
+                    servicesContainer.classList.add("shrink");
+                } else {
+                    servicesContainer.classList.remove("shrink");
+                }
+            });
+        });
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
