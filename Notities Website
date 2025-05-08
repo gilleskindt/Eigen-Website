@@ -1,0 +1,108 @@
+Coole animatie website demo is bij apple gewoon een video die scrolled playback heeft.
+Dus ik zou ook zo een video moeten kunnen maken en dan de javascript elementen implementeren.
+
+Apple script:
+, function(e, t, i) {
+    "use strict";
+    Object.defineProperty(t, "__esModule", {
+        value: !0
+    }),
+    t.default = void 0;
+    var s = i(11)
+      , n = i(9);
+    const r = n.Model.ClassNames.ENHANCED;
+    class a extends n.EnhancedComponent {
+        static IS_SUPPORTED() {
+            return document.documentElement.classList.contains(r)
+        }
+        constructor(e) {
+            super(e),
+            this._els = {
+                stickyContainer: null,
+                responsiveContainer: null,
+                headlineContainer: null,
+                deviceContainer: null,
+                screenContainer: null
+            },
+            this.enhancedScrollGroup = this.anim.createScrollGroup(this.el),
+            this.enhancedScrollGroup.name = "Video and Audio - Hero - Enhanced"
+        }
+        mounted() {
+            this._getElements(),
+            this._setupDeviceScaleKfs(),
+            this._setupDeviceHeightCSSVar(),
+            this._setupWillChangeKfs()
+        }
+        onResizeDebounced() {
+            this._setupDeviceHeightCSSVar()
+        }
+        _getElements() {
+            this._els = {
+                componentEl: this.el,
+                stickyContainer: this.el.querySelector(".sticky-container"),
+                responsiveContainer: this.el.querySelector(".responsive-container"),
+                headlineContainer: this.el.querySelector(".headline-container"),
+                deviceContainer: this.el.querySelector(".device-container"),
+                screenContainer: this.el.querySelector(".screen")
+            }
+        }
+        _setupDeviceHeightCSSVar() {
+            (0,
+            s.update)(( () => {
+                const e = this._els.responsiveContainer.getBoundingClientRect().height;
+                (0,
+                s.draw)(( () => {
+                    this._els.componentEl.style.setProperty("--video-audio-device-h-dynamic", e.toString() + "px")
+                }
+                ))
+            }
+            ))
+        }
+        _setupDeviceScaleKfs() {
+            const e = 1 / getComputedStyle(this.el).getPropertyValue("--video-audio-device-zoomed-scale")
+              , t = {
+                easeFunction: "easeInOutQuad",
+                ease: .9,
+                disabledWhen: ["no-enhanced"]
+            }
+              , i = {
+                anchors: [this._els.stickyContainer, this._els.responsiveContainer, this._els.deviceContainer, this._els.screenContainer],
+                el: this._els.deviceContainer,
+                start: "a0t",
+                end: "a0t + 75vh"
+            };
+            this.addKeyframe({
+                ...t,
+                ...i,
+                x: ["-50w", "-50w"],
+                y: ["-50%", "-50% + css(--r-localnav-height) / 2"],
+                scale: ["max(100vh / a2h, 100vw / a2w) + 0.28", `min(a1w / a2w, ${e})`]
+            }),
+            this.addKeyframe({
+                ...t,
+                ...i,
+                end: "a0t + 25vh",
+                opacity: [.7, 1]
+            }),
+            this.addKeyframe({
+                ...t,
+                anchors: [this._els.stickyContainer, this._els.headlineContainer],
+                el: this._els.headlineContainer,
+                start: "a0t",
+                end: "a0t + 25vh",
+                opacity: [1, 0]
+            })
+        }
+        _setupWillChangeKfs() {
+            const e = "100vh";
+            this.addKeyframe({
+                el: this._els.deviceContainer,
+                start: `a0t - ${e}`,
+                end: `a0t + 50vh + ${e}`,
+                cssClass: "will-change",
+                toggle: !0,
+                anchors: [this._els.stickyContainer, this._els.deviceContainer]
+            })
+        }
+    }
+    t.default = a
