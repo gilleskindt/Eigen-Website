@@ -64,6 +64,33 @@
                 </div>
             </div>
         </section>
+
+        <section class="photo-demo">
+        <!-- This extra div just gives us scrollable space after the sticky -->
+        <div class="spacer"></div>
+    
+        <div class="photo-content">
+            <div class="photo-container">
+            <!-- 1) Your photo -->
+            <img
+                class="photo-image"
+                src="images/Demo site.png"
+                alt="Descriptive alt text"
+            />
+            <!-- 2) The bezel (frame) graphic -->
+            <img
+                class="photo-bezel"
+                src="images/Bezel.png"
+                alt=""
+                aria-hidden="true"
+            />
+            </div>
+        </div>
+    
+        <div class="spacer"></div>
+        </section>
+    
+        
         <section class="portfolio">
             <div class="portfolio-items">
                 <div class="portfolio-item">
@@ -101,6 +128,57 @@
             </div>
         </section>
     </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html">
+                    <img src="images/logo-dark.png" alt="Logo" class="logo-image" id="logo">
+                </a>
+                <div class="social-icons">
+                    <a href="https://instagram.com/shaju.artesania" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/shaju.artesania" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/shaju-artesania" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a>
+                    <li><a href="about.html">Over</a></li>
+                    <li><a href="diensten.html">Diensten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+                <form>
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-contact">
+                <h3>Contactinformatie</h3>
+                <p>GK-Webdesign</p>
+                <p>Moeskroenstraat 790</p>
+                <p>8930 Menen (rekkem)</p>
+                <p>België</p>
+                <p>Tel. <a href="tel:+32473446678">+32 473 44 66 78</a></p>
+                <p>Email: <a href="mailto:info@gk-webdesign.be">info@gk-webdesign.be</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GK-Webdesign. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const phoneImage = document.querySelector(".phone-image");
@@ -171,6 +249,39 @@
                     logo.src = "images/logo-dark.png"; // Dark version when at the top
                 }
             });
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // animate bezel from scale 1 → 0.8
+        gsap.to('.photo-container', {
+        scrollTrigger: {
+            trigger: '.photo-content',
+            start:    'top',    // when content pins
+            end:      '+=520', // when you scroll past it
+            scrub:    true          // tie animation to scroll
+        },
+        scale: 0.6,
+        ease:  'none'
+        });
+        document.addEventListener("scroll", () => {
+            const photoImage = document.querySelector(".photo-container");
+            const photoBezel = document.querySelector(".photo-bezel");
+
+            const rect = photoImage.getBoundingClientRect();
+
+            
+            const isFullyInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+            if (rect.top >=0 && rect.bottom <= window.innerHeight) {
+                photoBezel.style.opacity = 1; // Make the bezel visible
+            } else if (rect.bottom <= window.innerHeight) {
+                photoBezel.style.opacity = 1; // Hide the bezel
+            }
+            else {
+                photoBezel.style.opacity = 0; // Hide the bezel
+            }
+            
         });
     </script>
 </body>

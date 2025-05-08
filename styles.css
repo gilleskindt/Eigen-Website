@@ -23,6 +23,7 @@ body {
     font-family: var(--font-primary);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 a {
@@ -35,7 +36,6 @@ ul {
 }
 
 img {
-    max-width: 100%;
     height: auto;
 }
 
@@ -148,6 +148,7 @@ header {
     height: 800px; /* Full viewport height */
     width: 100%; /* Ensure it spans the full width */
     text-align: center;
+    scrollbar-width: none;
 }
 
 /* Align navigation and language selector */
@@ -180,6 +181,7 @@ header {
     align-items: center;
     position: relative;
     background-color: transparent !important;
+    scrollbar-width: none;
 }
 
 .main-nav.active {
@@ -292,6 +294,7 @@ header {
     background-size: cover;
     background-position: center;
     position: relative;
+    scrollbar-width: none;
 }
 
 .hero-content {
@@ -386,7 +389,7 @@ header {
     position: relative;
     z-index: 1;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: auto;
+    height: 500px; /* Set a fixed height for the image */
     width: auto;
 }
 
@@ -457,7 +460,6 @@ header {
     margin: 0 auto; /* Center the grid */
     width: 100%; /* Ensure the grid spans the full width of the container */
     box-sizing: border-box; /* Include padding and border in width calculation */
-    justify-content: center; /* Center the grid items */
 }
 
 .service-item:hover {
@@ -474,6 +476,7 @@ header {
 .service-item p {
     color: var(--gray-dark);
     text-align: justify;
+    width: 350px; /* Set a fixed width for the text */
 }
 .service-item {
     text-align: center; /* Center-align the content */
@@ -490,6 +493,74 @@ header {
     color: var(--primary-color); /* Use your primary color */
     margin-bottom: 10px; /* Add spacing between the icon and the heading */
 }
+
+/* Webdemo */
+
+:root {
+    --transition-duration: 0.3s;
+    --transition-easing: ease-out;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .photo-demo {
+    /* Enough total height so scrolling can happen */
+    height: 200vh;
+    background: rgb(60, 89, 141);
+    max-width: 100vw;
+  }
+  
+  .spacer {
+    height: 20vh;
+  }
+  
+  .photo-content {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .photo-container {
+    position: relative;
+    width: 100vw;
+    height: 100%;      /* ← give it real height */  /* now it will clip only outside bits */
+  }
+  
+  .photo-image,
+  .photo-bezel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    /* remove any transition on transform here */
+    transition: opacity var(--transition-duration) var(--transition-easing);
+    pointer-events: none;
+  }
+  
+  .photo-image {
+    width: 100%;
+    z-index: 1;
+    opacity: 1;
+  }
+  
+  .photo-bezel {
+    opacity: 0; /* Start as invisible */
+    transition: opacity 0s ease; /* Smooth transition for visibility */
+    width: 2001px;
+    height: 1270px;
+    z-index: 2;
+    pointer-events: none;
+  }  
+  
+
 /* Portfolio Section */
 .portfolio {
     padding: 30px 1%;
@@ -497,6 +568,9 @@ header {
     background-color: var(--light-color);
     position: relative;
     overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 .swipe-hint {
     position: absolute;
@@ -535,10 +609,11 @@ header {
     display: inline-flex; /* Use inline-flex for horizontal layout */
     gap: 20px; /* Add spacing between items */
     padding-bottom: 10px; /* Add padding to avoid scrollbar overlap */
+    margin-right: 500px;
 }
 
 .portfolio-item {
-    width: 650px; /* Set a fixed width for each item */
+    width: 1000px; /* Set a fixed width for each item */
     padding: 40px; /* Add padding inside the box */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px; /* Optional: Add rounded corners */
@@ -546,10 +621,16 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    scroll-snap-align: center; /* Ensure each item snaps to the center */
+    scroll-snap-stop: always;
+}
+
+.portfolio-item:first-child {
+    width: 600px; /* Make the first portfolio item slightly smaller */
 }
 .portfolio-item img {
-    height: 450px; /* Set the desired height */
-    width: 650px; /* Set the width to fill the container */
+    height: 600px; /* Set the desired height */
+    width: 1000px; /* Set the width to fill the container */
     object-fit: cover; /* Crop the image to fit the dimensions */
     border-radius: 10px; /* Optional: Add rounded corners */
     display: flex; /* Ensure proper alignment */
@@ -1005,84 +1086,42 @@ header {
     max-width: 200px;
 }
 
-/* Newsletter Banner */
-.newsletter-banner {
-    background-color: var(--primary-color);
-    padding: 60px 5%;
-    text-align: center;
-    color: white;
-    margin-top: 80px;
-}
-
-.newsletter-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.newsletter-content h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.newsletter-content p {
-    margin-bottom: 25px;
-}
-
-.newsletter-form {
-    display: flex;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.newsletter-form input {
-    flex-grow: 1;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    font-family: var(--font-primary);
-}
-
-.newsletter-form .btn {
-    border-radius: 0 4px 4px 0;
-    background-color: var(--secondary-color);
-    box-shadow: none;
-}
-
-.newsletter-form .btn:hover {
-    background-color: #222;
-}
-
 /* Footer */
 footer {
-    background-color: var(--primary-color);
-    color: var(--light-color);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.633) 10%, rgba(60, 88, 141, 0.212) 100%);
+    color: var(--primary-color);
     padding: 50px 5% 20px;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    grid-template-columns: 1.2fr 1.2fr 2fr 2fr; /* Ensure three equal columns */
+    gap: 160px; /* Adjust spacing between columns */
     margin-bottom: 40px;
+    align-items: start; /* Align items to the top */
 }
 
 .footer-logo {
-    display: flex;
+    display: relative;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: left;
 }
 
-.footer-logo-image {
+.footer-logo img {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+    border-radius: 100%;
     margin-bottom: 15px;
+    align-items: relative;
+    display: block;
+    margin-left: 30px;
+    padding-left: 10px;
 }
 
 .footer-logo h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: var(--primary-light);
+    color: var(--primary-color);
 }
 
 .social-icons {
@@ -1110,15 +1149,17 @@ footer {
 }
 
 .footer-links h3,
-.footer-newsletter h3 {
+.footer-newsletter h3,
+.footer-contact h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
     position: relative;
-    color: var(--light-color);
+    color: var(--primary-color);
 }
 
 .footer-links h3:after,
-.footer-newsletter h3:after {
+.footer-newsletter h3:after,
+.footer-contact h3:after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -1134,11 +1175,19 @@ footer {
 
 .footer-links ul li a {
     transition: var(--transition);
+    background: none;
+}
+.footer-links :hover {
+    background: none
 }
 
 .footer-links ul li a:hover {
     color: var(--primary-light);
     padding-left: 5px;
+}
+.footer-links {
+    padding:0;
+    margin: 0px;
 }
 
 .footer-newsletter p {
@@ -1147,6 +1196,7 @@ footer {
 
 .footer-newsletter form {
     display: flex;
+    justify-content: flex-start;
 }
 
 .footer-newsletter input {
@@ -1169,6 +1219,7 @@ footer {
 .footer-newsletter button:hover {
     background-color: var(--primary-dark);
 }
+
 
 .footer-bottom {
     text-align: center;
